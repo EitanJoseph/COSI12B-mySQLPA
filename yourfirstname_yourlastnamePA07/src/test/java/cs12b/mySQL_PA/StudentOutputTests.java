@@ -72,16 +72,5 @@ class StudentOutputTests {
 		);
 	
 	}	
-	
-	
-	/*
-	 * sp.parse("CREATE [table_name] (column1, column2, column3)");
-		sp.parse("INSERT INTO [table_name] (cell1, cell2, cell3)");
-		sp.parse("INSERT INTO [table_name] (cell1.1, cell2.1, cell3.1)");
-		sp.parse("SELECT (column1, column2) FROM [table_name]");
-		sp.parse("SELECT * FROM [table_name]");
-
-	 */
-
 
 }

@@ -10,19 +10,51 @@ public class SQLParser {
 		
 	}
 	
-	public static String[] splitStringIntoChars(String str) {
-		throw new UnsupportedOperationException("not implemented yet");
+	// Provided helper methods
+	
+	/**
+	 * @param str
+	 * @return a String array of each character in str
+	 */
+	public String[] splitStringIntoChars(String str) {
+		return str.split("");
 	}
 	
-	public static String extractStringFromBrackets(String str) {
-		throw new UnsupportedOperationException("not implemented yet");
+	/**
+	 * @param str
+	 * @return str without its brackets
+	 * @throws IllegalArgumentException if str does not have brackets
+	 */
+	public String extractStringFromBrackets(String str) {
+		try {
+			return str.substring(str.indexOf("[") + 1, str.indexOf("]"));
+		} catch (Exception IndexOutOfBoundsException){
+			throw new IllegalArgumentException("expected [...] got " + str);
+		}
 	}
 	
+	/**
+	 * @param str
+	 * @return a String array of string arguments extracted from parens
+	 * @throws IllegalArgumentException if str does not have parens
+	 */
 	public static String[] extractStringsFromParens(String str) {
-		throw new UnsupportedOperationException("not implemented yet");
+		try {
+			return str.substring(str.indexOf("(") + 1, str.indexOf(")")).split(", ");
+		} catch (Exception IndexOutOfBoundsException){
+			throw new IllegalArgumentException("expected (...) got " + str);
+		}
 	}
 	
-	public static String extractOrderByAlias(String str) {
-		throw new UnsupportedOperationException("not implemented yet");
+	/**
+	 * @param str
+	 * @return a String representing the order by alias
+	 */
+	public String extractOrderByAlias(String str) {
+		try {
+			return extractStringsFromParens(str.substring(str.toUpperCase().indexOf("ORDER BY")))[0];
+		} catch (Exception IndexOutOfBoundsException){
+			return null;
+		}
 	}
 }
