@@ -1,4 +1,4 @@
-package cs12b.mySQL_PA;
+package test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -163,7 +163,7 @@ public class GenericConsoleTester {
 			System.err.println("Could not create output file: " + f.getMessage());
 		}
 	}
-	
+
 	/**
 	 * Gets the actual output for the test. That is, it gets the student's generated output (regardless of the output method) after their code has
 	 * been run. 
@@ -207,7 +207,13 @@ public class GenericConsoleTester {
 				System.err.println(e.getMessage());
 			}
 			try {
-				return (byteOut).toString(StandardCharsets.UTF_8.name()).trim();
+				String out = byteOut.toString(StandardCharsets.UTF_8.name()).trim();
+				StringJoiner joiner = new StringJoiner("\n");
+				String[] splitOnLineSep = out.split(SYS_LINE_SEPARATOR);
+				for (String separated : splitOnLineSep) {
+					joiner.add(separated.trim());
+				}
+				return joiner.toString();
 			} catch (UnsupportedEncodingException e) {
 				System.err.println(e.getMessage());
 				return null;

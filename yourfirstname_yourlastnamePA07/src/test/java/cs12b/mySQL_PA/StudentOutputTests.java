@@ -1,4 +1,4 @@
-package cs12b.mySQL_PA;
+package test;
 
 import java.io.File;
 import java.util.StringJoiner;
@@ -8,6 +8,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import main.Main;
 
 /**
  * These JUnit tests are meant to help you ensure that your code will work on the automated JUnit testing 
@@ -88,7 +90,7 @@ class StudentOutputTests {
 				"INSERT INTO [Table_B] (1, A, C)",
 				"INSERT INTO [Table_B] (2, B, D)",
 				"SELECT (column4A, column3A, column2B, column1A) FROM [Table_A] JOIN [Table_B] ON [Table_A].column2A = [Table_B].column2B ORDER BY (column1A) DESC",
-				"Q"
+				Main.SENTINEL
 		);
 	
 	}	
