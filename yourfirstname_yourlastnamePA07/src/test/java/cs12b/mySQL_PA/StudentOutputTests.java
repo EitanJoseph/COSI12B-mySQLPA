@@ -9,13 +9,36 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+/**
+ * These JUnit tests are meant to help you ensure that your code will work on the automated JUnit testing 
+ * system.
+ * 
+ * You <b>should not</b> edit this file.
+ * 
+ * @author Eitan Joseph
+ * @version 1.0 
+ * COSI 12B: mySQL PA 
+ * 11/15/19
+ */
 class StudentOutputTests {
 
-	// Change this if you want to keep output files
+	/**
+	 * This field should be changed if you wish to keep the output files the tests generate 
+	 */
 	private static boolean SHOULD_KEEP_OUT_FILES = true;
 	
+	/**
+	 * The testing utility used by these tests 
+	 */
 	private static GenericConsoleTester tester = new GenericConsoleTester(SHOULD_KEEP_OUT_FILES);
 	
+	/**
+	 * Helper method that tests a given input against an expected output. The actual output is written to
+	 * an output file that is also specified.
+	 * @param expected the expected output for the test case 
+	 * @param outFilePath the path the output will be written to 
+	 * @param testCase the test case (which can be a multiline input) b/c this is a variable string 
+	 */
 	private static void testInput(String expected, String outFilePath, String...testCase) {
 		try {
 			tester.setUpInputStream(testCase);
@@ -29,12 +52,9 @@ class StudentOutputTests {
 			tester.setUpOutStream("output_files" + System.getProperty("file.separator") + outFilePath);
 			Main.main(null); 
 			assertEquals(expected, tester.getActual());
-		}
-		// TODO add exception type 1 they were supposed to catch; if caught: fail("you were supposed to  handle <blank>");
-		// TODO add exception type 2 they were supposed to catch; if caught: fail("you were supposed to  handle <blank>");
-		// etc. 
+		} 
 		catch (Exception e) {
-			fail("You were not supposed to throw any exceptions:\n" + e.toString());
+			fail("Unexpected exception generated: " + e.toString());
 		}
 	}
 	
