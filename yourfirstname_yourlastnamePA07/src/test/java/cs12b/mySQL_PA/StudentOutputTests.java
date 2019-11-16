@@ -1,4 +1,4 @@
-package test;
+package cs12b.mySQL_PA;
 
 import java.io.File;
 import java.util.StringJoiner;
@@ -9,7 +9,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import main.Main;
 
 /**
  * These JUnit tests are meant to help you ensure that your code will work on the automated JUnit testing 

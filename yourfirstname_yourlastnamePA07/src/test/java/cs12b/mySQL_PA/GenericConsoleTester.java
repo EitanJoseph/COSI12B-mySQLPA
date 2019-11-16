@@ -1,4 +1,4 @@
-package test;
+package cs12b.mySQL_PA;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
