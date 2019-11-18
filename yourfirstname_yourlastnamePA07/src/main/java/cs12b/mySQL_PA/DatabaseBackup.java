@@ -64,7 +64,7 @@ public class DatabaseBackup {
 		
 		/**
 		 * Updates the previous node reference  
-		 * @param next new previous node reference 
+		 * @param prev new previous node reference 
 		 */
 		public void setPrev(Node prev) {
 			this.prev = prev;
