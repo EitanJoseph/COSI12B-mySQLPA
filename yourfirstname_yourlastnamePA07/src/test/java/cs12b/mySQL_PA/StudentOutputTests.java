@@ -79,19 +79,20 @@ class StudentOutputTests {
 	
 	@Test
 	void testPDFOutput() {
-		testInput(createTableFromLines("Y Z A 4", "M D B 3", "D C B 1"), "pdf_test_out.txt", 
-				"CREATE [Table_A] (column1A, column2A, column3A, column4A)", 
-				"INSERT INTO [Table_A] (1, B, C, D)", 
-				"INSERT INTO [Table_A] (2, F, G, H)",
-				"INSERT INTO [Table_A] (3, B, D, M)",
-				"INSERT INTO [Table_A] (4, A, Z, Y)",
-				"CREATE [Table_B] (column1B, column2B, column3B)",
-				"INSERT INTO [Table_B] (1, A, C)",
-				"INSERT INTO [Table_B] (2, B, D)",
-				"SELECT (column4A, column3A, column2B, column1A) FROM [Table_A] JOIN [Table_B] ON [Table_A].column2A = [Table_B].column2B ORDER BY (column1A) DESC",
+		testInput(createTableFromLines("Ben Segal 12B Antonella", "Hangyu Du 21A Liu", "Hanyu Song 36A Patterson", "Sam Stern 131A Papaemmanouil"), "pdf_test_out.txt", 
+				"CREATE [TAS] (studentId<i>, name, surname)", 
+				"INSERT INTO [TAS] (1, Ben, Segal)", 
+				"INSERT INTO [TAS] (2, Sam, Stern)",
+				"INSERT INTO [TAS] (3, Hanyu, Song)",
+				"INSERT INTO [TAS] (4, Hangyu, Du)",
+				"CREATE [CLASSES] (class, professor, TA_Id<i>)",
+				"INSERT INTO [CLASSES] (12B, Antonella, 1)",
+				"INSERT INTO [CLASSES] (21A, Liu, 4)",
+				"INSERT INTO [CLASSES] (131A, Papaemmanouil, 2)",
+				"INSERT INTO [CLASSES] (36A, Patterson, 3)",
+				"SELECT (name, surname, class, professor) FROM [TAS] JOIN [CLASSES] ON [TAS].studentId<i> = [CLASSES].TA_Id<i> ORDER BY (name) ASC",
 				Main.SENTINEL
 		);
-	
-	}	
+	}
 
 }

@@ -1,8 +1,8 @@
 package cs12b.mySQL_PA;
 
-public class Column {
+public class TableColumns {
 
-	public Column(String[] columnList) {
+	public TableColumns(String[] columnList) {
 		
 	}
 	
