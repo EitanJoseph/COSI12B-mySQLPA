@@ -79,14 +79,14 @@ class StudentOutputTests {
 	
 	@Test
 	void testPDFOutput() {
-		testInput(createTableFromLines("Ben Segal 12B Antonella", "Hangyu Du 21A Liu", "Hanyu Song 36A Patterson", "Sam Stern 131A Papaemmanouil"), "pdf_test_out.txt", 
+		testInput(createTableFromLines("Ben Segal 12B DiLillo", "Hangyu Du 21A Liu", "Hanyu Song 36A Patterson", "Sam Stern 131A Papaemmanouil"), "pdf_test_out.txt", 
 				"CREATE [TAS] (studentId<i>, name, surname)", 
 				"INSERT INTO [TAS] (1, Ben, Segal)", 
 				"INSERT INTO [TAS] (2, Sam, Stern)",
 				"INSERT INTO [TAS] (3, Hanyu, Song)",
 				"INSERT INTO [TAS] (4, Hangyu, Du)",
 				"CREATE [CLASSES] (class, professor, TA_Id<i>)",
-				"INSERT INTO [CLASSES] (12B, Antonella, 1)",
+				"INSERT INTO [CLASSES] (12B, DiLillo, 1)",
 				"INSERT INTO [CLASSES] (21A, Liu, 4)",
 				"INSERT INTO [CLASSES] (131A, Papaemmanouil, 2)",
 				"INSERT INTO [CLASSES] (36A, Patterson, 3)",
